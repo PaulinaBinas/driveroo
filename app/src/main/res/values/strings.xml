@@ -3,4 +3,9 @@
     <string name="firstName">Imię</string>
     <string name="surname">Nazwisko</string>
     <string name="save">Zapisz</string>
+    <string name="further">Dalej</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="changeDate">Zmień datę</string>
+    <string name="changeTime">Zmień godzinę</string>
 </resources>
