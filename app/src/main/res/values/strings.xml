@@ -8,4 +8,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="changeDate">Zmień datę</string>
     <string name="changeTime">Zmień godzinę</string>
+    <string name="saveEntry">Zapisz wpis</string>
+    <string name="summary">Podsumowanie:</string>
+    <string name="typeOfEntry">Typ przejazdu:</string>
+    <string name="dateOfEntry">Data przejazdu:</string>
+    <string name="timeOfEntry">Godzina przejazdu:</string>
+    <string name="country">Kraj:</string>
+    <string name="editEntry">Edytuj wpis</string>
 </resources>
