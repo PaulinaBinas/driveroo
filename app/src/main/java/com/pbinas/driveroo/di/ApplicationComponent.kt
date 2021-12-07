@@ -4,4 +4,5 @@ import dagger.Component
 
 @Component
 interface ApplicationComponent {
+
 }

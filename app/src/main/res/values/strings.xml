@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Driver time booking</string>
+    <string name="app_name">Driveroo</string>
     <string name="firstName">Imię</string>
     <string name="surname">Nazwisko</string>
     <string name="save">Zapisz</string>

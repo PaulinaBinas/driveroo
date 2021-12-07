@@ -1,8 +1,11 @@
 package com.pbinas.driveroo.data.model.drives
 
-//@Module
+import dagger.Module
+import dagger.Provides
+
+@Module
 class DriveModule {
 
-    //@Provides
+    @Provides
     fun provideDriveRepository(repository: DriveRepositoryImpl): DriveRepository = repository
 }

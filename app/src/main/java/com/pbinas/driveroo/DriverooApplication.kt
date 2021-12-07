@@ -1,14 +1,18 @@
 package com.pbinas.driveroo
 
 import android.app.Application
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import com.pbinas.driveroo.di.DaggerAppComponent
+import javax.inject.Inject
 
-class DriverooApplication: Application() {
-//
-//    @Inject
-//    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+class DriverooApplication: Application(), HasAndroidInjector {
 
-    //override fun androidInjector(): AndroidInjector<Any> = androidInjector
+    @Inject
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
+    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
     override fun onCreate() {
         super.onCreate()

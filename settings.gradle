@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Driver time booking"
+rootProject.name = "Driveroo"
