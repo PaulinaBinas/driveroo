@@ -3,7 +3,7 @@ package com.pbinas.driveroo.data.model.drives
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Drives")
+@Entity(tableName = "Drive")
 data class Drive constructor(
     var type: String,
     var time: String,

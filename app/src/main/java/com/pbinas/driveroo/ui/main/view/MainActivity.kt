@@ -1,14 +1,17 @@
 package com.pbinas.driveroo.ui.main.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.pbinas.driveroo.databinding.ActivityMainBinding
 import com.pbinas.driveroo.ui.base.view.BaseActivity
-import com.pbinas.driveroo.ui.mainMenu.view.MainMenuActivity
+import com.pbinas.driveroo.ui.main.interactor.MainInteractor
+import com.pbinas.driveroo.ui.main.presenter.MainPresenter
+import javax.inject.Inject
 
-class MainActivity : BaseActivity(), MainMenuView {
+class MainActivity : BaseActivity(), MainView {
 
+    @Inject
+    lateinit var presenter: MainPresenter<MainView, MainInteractor>
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +22,11 @@ class MainActivity : BaseActivity(), MainMenuView {
     }
 
     fun saveNames(view: View) {
-        var intent = Intent(this, MainMenuActivity::class.java)
-        intent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
-        finish()
+        var name = binding.firstNameEditText.text.toString()
+        var surname = binding.surnameEditText.text.toString()
+
+        if(name.isNotBlank() && surname.isNotBlank()) {
+            presenter.registerUser(this, name, surname)
+        }
     }
 }

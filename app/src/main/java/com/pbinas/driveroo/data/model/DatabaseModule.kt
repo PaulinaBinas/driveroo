@@ -19,8 +19,7 @@ class DatabaseModule {
 
     @Provides
     fun provideDatabase(context: Application): ApplicationDatabase = Room
-        .databaseBuilder(context, ApplicationDatabase::class.java, "driveroo.db")
-            //TODO create new db asset and link here
-        .createFromAsset("database/tachotest.db")
+        .databaseBuilder(context, ApplicationDatabase::class.java, "driverooApp.db")
+        .createFromAsset("database/driveroo.db")
         .build()
 }

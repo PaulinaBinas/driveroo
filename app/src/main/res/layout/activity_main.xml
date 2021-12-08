@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.DriverTimeBooking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="20dp"
@@ -30,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@id/imageView">
 
         <EditText
-            android:id="@+id/editJaTextTextPersonName"
+            android:id="@+id/firstNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -39,7 +40,7 @@
             android:hint="@string/firstName" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/surnameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"

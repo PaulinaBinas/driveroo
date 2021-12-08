@@ -1,15 +1,15 @@
-package com.pbinas.driveroo.ui.mainMenu.view
+package com.pbinas.driveroo.ui.mainMenu
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.pbinas.driveroo.R
-import com.pbinas.driveroo.ui.addNewEntry.AddNewEntryMenuActivity
-import com.pbinas.driveroo.ui.browse.BrowseActivity
+import com.pbinas.driveroo.ui.addNewEntry.view.AddNewEntryActivity
 import com.pbinas.driveroo.ui.base.view.BaseActivity
-import com.pbinas.driveroo.ui.main.view.MainMenuView
+import com.pbinas.driveroo.ui.base.view.BaseView
+import com.pbinas.driveroo.ui.browse.BrowseActivity
 
-class MainMenuActivity : BaseActivity(), MainMenuView {
+class MainMenuActivity : BaseActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -21,7 +21,7 @@ class MainMenuActivity : BaseActivity(), MainMenuView {
     }
 
     fun addRide(view: View) {
-        var intent = Intent(this, AddNewEntryMenuActivity::class.java)
+        var intent = Intent(this, AddNewEntryActivity::class.java)
         startActivity(intent)
     }
 }

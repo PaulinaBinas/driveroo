@@ -28,9 +28,9 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ui.chooseTime.ChooseTimeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.addNewEntry.AddNewEntryMenuActivity"
+        <activity android:name=".ui.addNewEntry.view.AddNewEntryActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.mainMenu.view.MainMenuActivity"
+        <activity android:name=".ui.mainMenu.MainMenuActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.view.MainActivity"

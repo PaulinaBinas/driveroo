@@ -10,6 +10,6 @@ interface DriveDao {
     @Insert
     fun saveDrive(drive: Drive)
 
-    @Query("SELECT * FROM Drives")
+    @Query("SELECT * FROM Drive")
     fun getAllEntries(): List<Drive>
 }
