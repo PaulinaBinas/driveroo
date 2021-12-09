@@ -1,4 +1,6 @@
 package com.pbinas.driveroo.ui.addNewEntry.interactor
 
-class AddNewEntryInteractorImpl: AddNewEntryInteractor {
+import javax.inject.Inject
+
+class AddNewEntryInteractorImpl @Inject internal constructor(): AddNewEntryInteractor {
 }

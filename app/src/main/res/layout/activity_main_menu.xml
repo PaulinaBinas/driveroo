@@ -36,6 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
+            android:background="@drawable/rounded_button"
             android:onClick="addRide"
             android:text="Dodaj przejazd" />
 
@@ -43,6 +44,7 @@
             android:id="@+id/editButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
             android:onClick="browseEntries"
             android:text="Przeglądaj wpisy" />
     </LinearLayout>

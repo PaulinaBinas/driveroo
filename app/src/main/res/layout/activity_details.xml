@@ -151,6 +151,7 @@
         android:onClick="saveEntry"
         android:text="@string/saveEntry"
         android:visibility="invisible"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -161,6 +162,7 @@
         android:layout_height="wrap_content"
         android:onClick="saveEntry"
         android:visibility="invisible"
+        android:background="@drawable/rounded_button"
         android:text="@string/editEntry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

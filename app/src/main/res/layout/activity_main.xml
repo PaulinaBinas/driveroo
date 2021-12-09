@@ -54,6 +54,7 @@
         android:layout_height="wrap_content"
         android:text="@string/save"
         android:onClick="saveNames"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

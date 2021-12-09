@@ -7,7 +7,7 @@ import com.pbinas.driveroo.R
 import com.pbinas.driveroo.ui.addNewEntry.view.AddNewEntryActivity
 import com.pbinas.driveroo.ui.base.view.BaseActivity
 import com.pbinas.driveroo.ui.base.view.BaseView
-import com.pbinas.driveroo.ui.browse.BrowseActivity
+import com.pbinas.driveroo.ui.browse.view.BrowseActivity
 
 class MainMenuActivity : BaseActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {

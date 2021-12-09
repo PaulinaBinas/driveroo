@@ -5,7 +5,8 @@ import com.pbinas.driveroo.data.model.drives.DriveModule
 import com.pbinas.driveroo.data.model.user.UserModule
 import com.pbinas.driveroo.ui.addNewEntry.AddNewEntryModule
 import com.pbinas.driveroo.ui.addNewEntry.view.AddNewEntryActivity
-import com.pbinas.driveroo.ui.browse.BrowseActivity
+import com.pbinas.driveroo.ui.browse.BrowseModule
+import com.pbinas.driveroo.ui.browse.view.BrowseActivity
 import com.pbinas.driveroo.ui.chooseCountry.ChooseCountryActivity
 import com.pbinas.driveroo.ui.chooseTime.ChooseTimeActivity
 import com.pbinas.driveroo.ui.details.DetailsModule
@@ -25,7 +26,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(AddNewEntryModule::class)])
     abstract fun bindAddNewEntryMenuActivity(): AddNewEntryActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [(DatabaseModule::class), (DriveModule::class), (BrowseModule::class)])
     abstract fun bindBrowseActivity(): BrowseActivity
 
     @ContributesAndroidInjector

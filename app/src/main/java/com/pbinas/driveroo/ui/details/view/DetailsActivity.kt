@@ -32,7 +32,7 @@ class DetailsActivity : BaseActivity() {
     }
 
     fun saveEntry(view: View) {
-        var drive = Drive(type, date, time, country)
+        var drive = Drive(type, time, date, country)
         this.presenter.saveDrive(this, drive)
     }
 
@@ -53,7 +53,7 @@ class DetailsActivity : BaseActivity() {
         saveButton.visibility = View.VISIBLE
     }
 
-    private fun ShowEditButton() {
+    private fun showEditButton() {
         var editButton: Button = findViewById(R.id.editButton)
         editButton.visibility = View.VISIBLE
     }

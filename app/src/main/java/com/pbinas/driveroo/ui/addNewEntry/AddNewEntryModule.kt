@@ -12,7 +12,7 @@ import dagger.Provides
 class AddNewEntryModule {
 
     @Provides
-    internal fun provideAddNewEntryInteractor(): AddNewEntryInteractor = AddNewEntryInteractorImpl()
+    internal fun provideAddNewEntryInteractor(interactor: AddNewEntryInteractorImpl): AddNewEntryInteractor = interactor
 
     @Provides
     internal fun provideAddNewEntryPresenter(presenter: AddNewEntryPresenterImpl<AddNewEntryView, AddNewEntryInteractor>): AddNewEntryPresenter<AddNewEntryView, AddNewEntryInteractor> = presenter

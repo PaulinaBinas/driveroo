@@ -49,6 +49,7 @@
                 android:id="@+id/dateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
                 android:text="@string/changeDate" />
         </LinearLayout>
 
@@ -70,6 +71,7 @@
                 android:id="@+id/timeButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
                 android:text="@string/changeTime" />
         </LinearLayout>
 
@@ -81,6 +83,7 @@
         android:layout_height="wrap_content"
         android:text="@string/further"
         android:onClick="goFurther"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

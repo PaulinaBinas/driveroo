@@ -8,5 +8,5 @@ data class User (
     var name: String,
     var surname: String
 ) {
-    @PrimaryKey(autoGenerate = true) var id: Int? = null
+    @PrimaryKey var id = 1
 }
