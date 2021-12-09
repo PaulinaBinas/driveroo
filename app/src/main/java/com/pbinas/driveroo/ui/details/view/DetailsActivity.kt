@@ -1,15 +1,19 @@
-package com.pbinas.driveroo.ui.details
+package com.pbinas.driveroo.ui.details.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.pbinas.driveroo.R
+import com.pbinas.driveroo.data.model.drives.Drive
 import com.pbinas.driveroo.ui.base.view.BaseActivity
-import com.pbinas.driveroo.ui.mainMenu.MainMenuActivity
+import com.pbinas.driveroo.ui.details.interactor.DetailsInteractor
+import com.pbinas.driveroo.ui.details.presenter.DetailsPresenter
+import javax.inject.Inject
 
 class DetailsActivity : BaseActivity() {
+    @Inject
+    lateinit var presenter: DetailsPresenter<DetailsView, DetailsInteractor>
     var type = ""
     var date = ""
     var time = ""
@@ -28,10 +32,8 @@ class DetailsActivity : BaseActivity() {
     }
 
     fun saveEntry(view: View) {
-        var intent = Intent(this, MainMenuActivity::class.java)
-        intent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
-        finish()
+        var drive = Drive(type, date, time, country)
+        this.presenter.saveDrive(this, drive)
     }
 
     private fun setValues() {
@@ -52,6 +54,7 @@ class DetailsActivity : BaseActivity() {
     }
 
     private fun ShowEditButton() {
-
+        var editButton: Button = findViewById(R.id.editButton)
+        editButton.visibility = View.VISIBLE
     }
 }

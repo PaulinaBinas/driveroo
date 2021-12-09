@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.pbinas.driveroo.R
 import com.pbinas.driveroo.ui.base.view.BaseActivity
-import com.pbinas.driveroo.ui.details.DetailsActivity
+import com.pbinas.driveroo.ui.details.view.DetailsActivity
 
 class ChooseCountryActivity : BaseActivity() {
     var type = ""
@@ -25,6 +25,12 @@ class ChooseCountryActivity : BaseActivity() {
         intent.putExtra("type", type)
         intent.putExtra("date", date)
         intent.putExtra("time", time)
+        intent.putExtra("country", getCountry())
         startActivity(intent)
+    }
+
+    private fun getCountry(): String {
+        //TODO actually implement getting from UI
+        return "Polska"
     }
 }
