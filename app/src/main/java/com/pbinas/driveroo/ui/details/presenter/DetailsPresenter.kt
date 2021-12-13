@@ -9,4 +9,8 @@ import com.pbinas.driveroo.ui.details.view.DetailsView
 interface DetailsPresenter<V: DetailsView, I: DetailsInteractor>: Presenter<V, I> {
 
     fun saveDrive(context: Activity, drive: Drive)
+
+    fun loadDriveById(id: Int)
+
+    fun getTypeText(type: String): String
 }

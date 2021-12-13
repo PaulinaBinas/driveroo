@@ -5,6 +5,7 @@
     android:theme="@style/Theme.DriverTimeBooking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     android:paddingHorizontal="20dp"
     android:paddingVertical="40dp"
     tools:context=".ui.main.view.MainActivity">

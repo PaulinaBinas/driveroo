@@ -26,4 +26,30 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), Detai
         context.startActivity(intent)
         context.finish()
     }
+
+    override fun loadDriveById(id: Int) {
+        var drive: Drive? = null
+        interactor?.let {
+            var run = GlobalScope.launch {
+                drive = it.loadDrive(id)
+            }
+            while(!run.isCompleted) {}
+            if (drive != null) {
+                var view = (getView() as DetailsView)
+                view.setType(drive!!.type)
+                view.setTime(drive!!.time)
+                view.setDate(drive!!.date)
+                view.setCountry(drive!!.country)
+                view.setValues()
+            }
+        }
+    }
+
+    override fun getTypeText(type: String): String {
+        return when(type) {
+            "LOADING" -> "Załadunek"
+            "UNLOADING" -> "Rozładunek"
+            else -> ""
+        }
+    }
 }

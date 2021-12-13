@@ -13,4 +13,7 @@ interface DriveDao {
 
     @Query("SELECT * FROM Drive")
     fun getAllEntries(): List<Drive>
+
+    @Query("SELECT * FROM Drive WHERE id=:id LIMIT 1")
+    fun getDriveById(id: Int): Drive
 }

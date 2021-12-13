@@ -5,6 +5,7 @@
     android:theme="@style/Theme.DriverTimeBooking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     android:paddingHorizontal="20dp"
     android:paddingVertical="40dp"
     tools:context=".ui.chooseTime.ChooseTimeActivity">
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:clipToPadding="false"
         android:paddingVertical="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_button"
+                android:onClick="changeDate"
                 android:text="@string/changeDate" />
         </LinearLayout>
 
@@ -72,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_button"
+                android:onClick="changeTime"
                 android:text="@string/changeTime" />
         </LinearLayout>
 

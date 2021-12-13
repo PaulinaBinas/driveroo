@@ -5,4 +5,6 @@ interface DriveRepository {
     fun addDrive(drive: Drive)
 
     fun getDrivesList(): List<Drive>
+
+    fun getDriveById(id: Int): Drive?
 }

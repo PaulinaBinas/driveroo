@@ -9,4 +9,6 @@ import com.pbinas.driveroo.ui.browse.view.BrowseView
 interface BrowsePresenter<V: BrowseView, I: BrowseInteractor>: Presenter<V, I> {
 
     fun setViewValues(binding: ActivityBrowseBinding, context: Context)
+
+    fun openDetails(id: Int)
 }

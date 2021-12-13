@@ -1,10 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DriverTimeBooking" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Theme.DriverTimeBooking" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/orange</item>
-        <item name="colorButtonNormal">@color/dark_orange</item>
-        <!-- Status bar color. -->
+        <item name="android:colorButtonNormal">@color/orange</item>
+        <!-- Secondary brand color. -->
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.DriverTimeBooking.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DriverTimeBooking.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DriverTimeBooking.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

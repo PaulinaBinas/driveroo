@@ -9,4 +9,8 @@ class DetailsInteractorImpl @Inject internal constructor(var driveRepository: Dr
     override fun saveDrive(drive: Drive) {
         driveRepository.addDrive(drive)
     }
+
+    override fun loadDrive(id: Int): Drive? {
+        return driveRepository.getDriveById(id)
+    }
 }

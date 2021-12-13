@@ -6,4 +6,6 @@ import com.pbinas.driveroo.ui.base.interactor.Interactor
 interface DetailsInteractor: Interactor {
 
     fun saveDrive(drive: Drive)
+
+    fun loadDrive(id: Int): Drive?
 }

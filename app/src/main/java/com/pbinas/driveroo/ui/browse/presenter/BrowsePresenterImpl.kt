@@ -21,24 +21,31 @@ constructor(interactor: I): BasePresenter<V, I>(interactor = interactor), Browse
     override fun setViewValues(binding: ActivityBrowseBinding, context: Context) {
         var drives: List<Drive> = ArrayList()
         interactor?.let {
-            GlobalScope.launch {
+            var run = GlobalScope.launch {
                 drives = it.getAllDrives()
             }
+
+            while(!run.isCompleted) {
+                //wait
+            }
+            var driveItemsList: List<DriveItem> = extractDriveItems(drives)
+
+            binding.drivesRecyclerView.adapter = BrowseAdapter(driveItemsList, this as BasePresenter<BaseView, BaseInteractor>)
+            val verticalLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            binding.drivesRecyclerView.layoutManager = verticalLayoutManager
+            binding.drivesRecyclerView.setHasFixedSize(true)
         }
-
-        var driveItemsList: List<DriveItem> = extractDriveItems(drives)
-
-        binding.drivesRecyclerView.adapter = BrowseAdapter(driveItemsList, this as BasePresenter<BaseView, BaseInteractor>)
-        val verticalLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.drivesRecyclerView.layoutManager = verticalLayoutManager
-        binding.drivesRecyclerView.setHasFixedSize(true)
     }
 
     private fun extractDriveItems(drives: List<Drive>): List<DriveItem> {
         var result: List<DriveItem> = ArrayList()
         for (drive in drives) {
-            result += DriveItem(drive.date, drive.time)
+            result += DriveItem(drive.id!!, drive.date, drive.time)
         }
         return result
+    }
+
+    override fun openDetails(id: Int) {
+        (getView() as BrowseView).openDetails(id)
     }
 }
