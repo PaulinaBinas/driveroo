@@ -7,4 +7,6 @@ interface DriveRepository {
     fun getDrivesList(): List<Drive>
 
     fun getDriveById(id: Int): Drive?
+
+    fun deleteDriveById(id: Int)
 }

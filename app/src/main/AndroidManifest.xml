@@ -24,7 +24,7 @@
         android:screenOrientation="portrait" />
         <activity android:name=".ui.details.view.DetailsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.chooseCountry.ChooseCountryActivity"
+        <activity android:name=".ui.chooseCountry.view.ChooseCountryActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.chooseTime.ChooseTimeActivity"
             android:screenOrientation="portrait" />

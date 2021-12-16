@@ -17,6 +17,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         var c = Calendar.getInstance()
         if(activity is ChooseTimeView) {
             var time = (activity as ChooseTimeView).getTime()
+
             var localTime = LocalTime.parse(time)
             hour = localTime.hour
             minute = localTime.minute

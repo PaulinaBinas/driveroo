@@ -32,7 +32,7 @@ BasePresenter<BaseView, BaseInteractor>): RecyclerView.Adapter<BrowseAdapter.Bro
 
     override fun onBindViewHolder(holder: BrowseViewHolder, position: Int) {
         val currentDrive = drivesList[position]
-        holder.dateTextView.setOnClickListener{
+        holder.view.setOnClickListener{
             itemClicked(currentDrive.id, holder.view)
         }
         holder.dateTextView.text = currentDrive.date + " " + currentDrive.time
@@ -42,7 +42,6 @@ BasePresenter<BaseView, BaseInteractor>): RecyclerView.Adapter<BrowseAdapter.Bro
 
     private fun itemClicked(id: Int, view: View) {
         clickedItem = id
-        notifyDataSetChanged()
         if(viewPresenter is BrowsePresenter<*, *>) {
             (viewPresenter as BrowsePresenter<BrowseView, BrowseInteractor>).openDetails(id)
         }

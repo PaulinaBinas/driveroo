@@ -15,4 +15,8 @@ class DriveRepositoryImpl @Inject internal constructor(var driveDao: DriveDao): 
     override fun getDriveById(id: Int): Drive? {
         return driveDao.getDriveById(id)
     }
+
+    override fun deleteDriveById(id: Int) {
+        driveDao.deleteEntryById(id)
+    }
 }

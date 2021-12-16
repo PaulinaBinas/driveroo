@@ -161,7 +161,7 @@
         android:id="@+id/editButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="saveEntry"
+        android:onClick="editEntry"
         android:visibility="invisible"
         android:background="@drawable/rounded_button"
         android:text="@string/editEntry"

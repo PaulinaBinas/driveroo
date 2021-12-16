@@ -8,4 +8,6 @@ interface DetailsInteractor: Interactor {
     fun saveDrive(drive: Drive)
 
     fun loadDrive(id: Int): Drive?
+
+    fun deleteBrive(id: Int)
 }

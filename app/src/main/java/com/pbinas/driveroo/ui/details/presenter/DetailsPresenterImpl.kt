@@ -52,4 +52,15 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), Detai
             else -> ""
         }
     }
+
+    override fun deleteDrive(id: Int) {
+        interactor?.let {
+            var run = GlobalScope.launch {
+                it.deleteBrive(id)
+            }
+            while (!run.isCompleted) {
+                ; //wait
+            }
+        }
+    }
 }

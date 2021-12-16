@@ -15,6 +15,13 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), AddNe
     override fun goFurther(context: Activity, type: RideType) {
         var intent = Intent(context, ChooseTimeActivity::class.java)
         intent.putExtra("type", type.name)
+        var view: AddNewEntryView = getView() as AddNewEntryView
+        if(view.getId() != null && view.getId()!! > -1) {
+            intent.putExtra("id", view.getId())
+            intent.putExtra("date", view.getDate())
+            intent.putExtra("time", view.getTime())
+            intent.putExtra("country", view.getCountry())
+        }
         context.startActivity(intent)
     }
 }

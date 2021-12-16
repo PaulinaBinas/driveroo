@@ -16,4 +16,7 @@ interface DriveDao {
 
     @Query("SELECT * FROM Drive WHERE id=:id LIMIT 1")
     fun getDriveById(id: Int): Drive
+
+    @Query("DELETE FROM Drive WHERE id=:id")
+    fun deleteEntryById(id: Int)
 }

@@ -13,4 +13,6 @@ interface DetailsPresenter<V: DetailsView, I: DetailsInteractor>: Presenter<V, I
     fun loadDriveById(id: Int)
 
     fun getTypeText(type: String): String
+
+    fun deleteDrive(id: Int)
 }

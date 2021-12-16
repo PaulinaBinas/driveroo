@@ -28,7 +28,7 @@ constructor(interactor: I): BasePresenter<V, I>(interactor = interactor), Browse
             while(!run.isCompleted) {
                 //wait
             }
-            var driveItemsList: List<DriveItem> = extractDriveItems(drives)
+            var driveItemsList: List<DriveItem> = extractDriveItems(drives).reversed()
 
             binding.drivesRecyclerView.adapter = BrowseAdapter(driveItemsList, this as BasePresenter<BaseView, BaseInteractor>)
             val verticalLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

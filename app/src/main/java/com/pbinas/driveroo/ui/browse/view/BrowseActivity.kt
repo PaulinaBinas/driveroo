@@ -27,6 +27,7 @@ class BrowseActivity : BaseActivity(), BrowseView {
     override fun openDetails(id: Int) {
         var intent = Intent(this, DetailsActivity::class.java)
         intent.putExtra("id", id)
+        intent.putExtra("edit", true)
         startActivity(intent)
     }
 }

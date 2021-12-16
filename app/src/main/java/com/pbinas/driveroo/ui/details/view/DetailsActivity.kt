@@ -1,11 +1,13 @@
 package com.pbinas.driveroo.ui.details.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.pbinas.driveroo.R
 import com.pbinas.driveroo.data.model.drives.Drive
+import com.pbinas.driveroo.ui.addNewEntry.view.AddNewEntryActivity
 import com.pbinas.driveroo.ui.base.view.BaseActivity
 import com.pbinas.driveroo.ui.details.interactor.DetailsInteractor
 import com.pbinas.driveroo.ui.details.presenter.DetailsPresenter
@@ -35,6 +37,7 @@ class DetailsActivity : BaseActivity(), DetailsView {
     }
 
     var id: Int? = null
+    private var edit = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +46,10 @@ class DetailsActivity : BaseActivity(), DetailsView {
         time = intent.extras?.getString("time") ?: ""
         country = intent.extras?.getString("country") ?: ""
         id = intent.extras?.getInt("id", -1)
+        edit = intent.extras?.getBoolean("edit", false) ?: false
         setContentView(R.layout.activity_details)
         presenter.onAttach(this)
-        if (id != null && id!! > -1) {
+        if (id != null && id!! > -1 && edit) {
             presenter.loadDriveById(id!!)
             showEditButton()
         } else {
@@ -56,7 +60,21 @@ class DetailsActivity : BaseActivity(), DetailsView {
 
     fun saveEntry(view: View) {
         var drive = Drive(type, time, date, country)
+        if (id != null && id!! > -1 && !edit) {
+            drive.id = id
+            this.presenter
+        }
         this.presenter.saveDrive(this, drive)
+    }
+
+    fun editEntry(view: View) {
+        var intent = Intent(this, AddNewEntryActivity::class.java)
+        intent.putExtra("id", id)
+        intent.putExtra("type", type)
+        intent.putExtra("date", date)
+        intent.putExtra("time", time)
+        intent.putExtra("country", country)
+        startActivity(intent)
     }
 
     override fun setValues() {
