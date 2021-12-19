@@ -8,6 +8,7 @@ import com.pbinas.driveroo.ui.addNewEntry.view.AddNewEntryActivity
 import com.pbinas.driveroo.ui.base.view.BaseActivity
 import com.pbinas.driveroo.ui.base.view.BaseView
 import com.pbinas.driveroo.ui.browse.view.BrowseActivity
+import com.pbinas.driveroo.ui.sendEmail.view.SendEmailActivity
 
 class MainMenuActivity : BaseActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,11 @@ class MainMenuActivity : BaseActivity(), BaseView {
 
     fun addRide(view: View) {
         var intent = Intent(this, AddNewEntryActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun sendEmail(view: View) {
+        var intent = Intent(this, SendEmailActivity::class.java)
         startActivity(intent)
     }
 }

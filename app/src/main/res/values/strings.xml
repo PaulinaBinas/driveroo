@@ -15,4 +15,7 @@
     <string name="timeOfEntry">Godzina:</string>
     <string name="country">Kraj:</string>
     <string name="editEntry">Edytuj wpis</string>
+    <string name="sendMail">Wyślij dane</string>
+    <string name="whichDataToSend">Które dane chcesz wysłać?</string>
+    <string name="send">Wyślij</string>
 </resources>

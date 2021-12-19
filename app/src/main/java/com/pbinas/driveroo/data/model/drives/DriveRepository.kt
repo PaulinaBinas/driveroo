@@ -9,4 +9,6 @@ interface DriveRepository {
     fun getDriveById(id: Int): Drive?
 
     fun deleteDriveById(id: Int)
+
+    fun getDrivesByDate(date: String): List<Drive>
 }

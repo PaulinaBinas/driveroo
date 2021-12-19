@@ -19,4 +19,7 @@ interface DriveDao {
 
     @Query("DELETE FROM Drive WHERE id=:id")
     fun deleteEntryById(id: Int)
+
+    @Query("SELECT * FROM Drive WHERE date LIKE '%-' || :date")
+    fun getDrivesByDate(date: String): List<Drive>
 }

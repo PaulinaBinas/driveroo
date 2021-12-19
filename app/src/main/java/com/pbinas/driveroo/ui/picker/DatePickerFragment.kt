@@ -13,9 +13,9 @@ import java.util.*
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        var year = 0
-        var month = 0
-        var dayOfMonth = 0
+        var year: Int
+        var month: Int
+        var dayOfMonth: Int
         var c = Calendar.getInstance()
         if(activity is ChooseTimeView) {
             var date = (activity as ChooseTimeView).getDate()

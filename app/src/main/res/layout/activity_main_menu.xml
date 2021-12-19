@@ -17,7 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         app:srcCompat="@drawable/logo" />
 
     <LinearLayout
@@ -46,8 +45,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
+            android:layout_marginBottom="40dp"
             android:onClick="browseEntries"
             android:text="Przeglądaj wpisy" />
+
+        <Button
+            android:id="@+id/sendEmailButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:onClick="sendEmail"
+            android:text="@string/sendMail" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
