@@ -8,7 +8,7 @@ import com.pbinas.driveroo.ui.base.presenter.BasePresenter
 import com.pbinas.driveroo.ui.base.view.BaseView
 import com.pbinas.driveroo.ui.chooseCountry.ChooseCountryAdapter
 import com.pbinas.driveroo.ui.chooseCountry.CountryItem
-import com.pbinas.driveroo.ui.chooseCountry.CountryUtil
+import com.pbinas.driveroo.util.CountryUtil
 import com.pbinas.driveroo.ui.chooseCountry.interactor.ChooseCountryInteractor
 import com.pbinas.driveroo.ui.chooseCountry.view.ChooseCountryView
 import javax.inject.Inject

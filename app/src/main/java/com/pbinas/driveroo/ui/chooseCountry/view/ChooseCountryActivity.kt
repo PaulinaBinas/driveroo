@@ -6,7 +6,7 @@ import android.view.View
 import com.pbinas.driveroo.databinding.ActivityChooseCountryBinding
 import com.pbinas.driveroo.ui.base.view.BaseActivity
 import com.pbinas.driveroo.ui.chooseCountry.ChooseCountryAdapter
-import com.pbinas.driveroo.ui.chooseCountry.CountryUtil
+import com.pbinas.driveroo.util.CountryUtil
 import com.pbinas.driveroo.ui.chooseCountry.interactor.ChooseCountryInteractor
 import com.pbinas.driveroo.ui.chooseCountry.presenter.ChooseCountryPresenter
 import com.pbinas.driveroo.ui.details.view.DetailsActivity
