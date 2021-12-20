@@ -19,7 +19,7 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), SendE
 
         interactor?.let {
             GlobalScope.launch {
-                var drives = it.getDrivesForMonth("12-2021")
+                var drives = it.getDrivesForMonth("12/2021")
                 drives = drives.sortedWith(compareBy(Drive::date))
                 var user = it.getUser()
                 ExcelUtil.createNewFile(view as SendEmailActivity, drives, user)

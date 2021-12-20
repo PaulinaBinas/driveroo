@@ -27,7 +27,7 @@ class ChooseTimeActivity : BaseActivity(), ChooseTimeView {
         setContentView(R.layout.activity_choose_time)
         var dateTime = Calendar.getInstance().time
         var dateText : TextView = findViewById(R.id.dateText)
-        dateText.text = dateTime.toString("dd-MM-yyyy")
+        dateText.text = dateTime.toString("dd/MM/yyyy")
         var timeText : TextView = findViewById(R.id.timeText)
         timeText.text = dateTime.toString("HH:mm")
         type = intent.getStringExtra("type") ?: ""
@@ -65,7 +65,7 @@ class ChooseTimeActivity : BaseActivity(), ChooseTimeView {
 
     override fun setNewDate(year: Int, month: Int, day: Int) {
         var dateText : TextView = findViewById(R.id.dateText)
-        dateText.text = LocalDate.of(year, month, day).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+        dateText.text = LocalDate.of(year, month, day).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
     }
 
     override fun getDate(): String {

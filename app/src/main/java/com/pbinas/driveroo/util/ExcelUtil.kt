@@ -19,50 +19,77 @@ class ExcelUtil {
     companion object {
 
         private var nameAndSurname = "Imię i nazwisko"
-        private var country = "Państwo odcinka zagranicznego"
-        private var entryDate = "Data wjazdu"
-        private var hour = "Godzina"
-        private var leavingDate = "Data wyjazdu"
-        private var goalCountry = "Państwo docelowe"
-        private var dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-        private var timeFormatter = DateTimeFormatter.ofPattern("HH:mm")
+        private var country = "Państwo"
+        private var date = "Data"
+        private var time = "Godzina"
+        private var rideType = "Typ przejazdu"
+        private var dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
-        fun createNewFile(context: Context, drives: List<Drive>, user: User) {
+        fun createNewFile(context: Context, drives: List<Drive>, user: User): String? {
             if(drives.isNotEmpty()) {
                 val workbook = HSSFWorkbook()
                 val sheet: Sheet = workbook.createSheet()
-                var row = sheet.createRow(0)
-                var cell = row.createCell(0)
-                cell.setCellValue(nameAndSurname)
 
-                cell = row.createCell(1)
-                cell.setCellValue("${user.name} ${user.surname}")
-
-                row = sheet.createRow(2)
-
-                cell = row.createCell(0)
-                cell.setCellValue(country)
-
-                cell = row.createCell(1)
-                cell.setCellValue(entryDate)
-
-                cell = row.createCell(2)
-                cell.setCellValue(hour)
-
-                cell = row.createCell(3)
-                cell.setCellValue(leavingDate)
-
-                cell = row.createCell(4)
-                cell.setCellValue(hour)
-
-                cell = row.createCell(5)
-                cell.setCellValue(goalCountry)
+                createHeadings(sheet, user)
+                createContent(sheet, drives)
 
                 var date = LocalDate.parse(drives.firstOrNull()?.date, dateFormatter)
                 var dateText = date.format(DateTimeFormatter.ofPattern("yyyy_MM"))
                 var filename = "${user.name}_${user.surname}_$dateText"
                 storeExcelInStorage(context, filename, workbook)
-                readExcelFromStorage(context, filename)
+
+                return filename
+            }
+            return null
+        }
+
+        private fun createHeadings(sheet: Sheet, user: User) {
+            var row = sheet.createRow(0)
+            var cell = row.createCell(0)
+            cell.setCellValue(nameAndSurname)
+
+            cell = row.createCell(1)
+            cell.setCellValue("${user.name} ${user.surname}")
+
+            row = sheet.createRow(2)
+
+            cell = row.createCell(0)
+            cell.setCellValue(country)
+
+            cell = row.createCell(1)
+            cell.setCellValue(date)
+
+            cell = row.createCell(2)
+            cell.setCellValue(time)
+
+            cell = row.createCell(3)
+            cell.setCellValue(rideType)
+        }
+
+        private fun createContent(sheet: Sheet, drives: List<Drive>) {
+            var currentRowNo = 3
+            for(drive in drives) {
+                var row = sheet.createRow(currentRowNo)
+                var cell = row.createCell(0)
+                cell.setCellValue(drive.country)
+
+                cell = row.createCell(1)
+                cell.setCellValue(drive.date)
+
+                cell = row.createCell(2)
+                cell.setCellValue(drive.time)
+
+                cell = row.createCell(3)
+                cell.setCellValue(getRideTypeText(drive.type))
+                currentRowNo++
+            }
+        }
+
+        private fun getRideTypeText(type: String): String {
+            return when(type) {
+                "LOADING" -> "Załadunek"
+                "UNLOADING" -> "Rozładunek"
+                else -> "Nieznany"
             }
         }
 
@@ -86,7 +113,7 @@ class ExcelUtil {
             return isSuccess
         }
 
-        private fun readExcelFromStorage(context: Context, fileName: String) {
+        fun readExcelFromStorage(context: Context, fileName: String): HSSFWorkbook? {
             var file = File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName)
 
             try {
@@ -95,10 +122,12 @@ class ExcelUtil {
                 var workbook = HSSFWorkbook(fileInputStream);
 
                 var sheet = workbook.getSheetAt(0);
+                return workbook
                 sheet.topRow
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+            return null
         }
 
         private fun isExternalStorageReadOnly(): Boolean {

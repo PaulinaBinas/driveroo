@@ -19,7 +19,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
         var c = Calendar.getInstance()
         if(activity is ChooseTimeView) {
             var date = (activity as ChooseTimeView).getDate()
-            var localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+            var localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd/MM/yyyy"))
             year = localDate.year
             month = localDate.monthValue - 1
             dayOfMonth = localDate.dayOfMonth
