@@ -15,4 +15,8 @@ class SendEmailInteractorImpl @Inject internal constructor(var userRepository: U
     override fun getDrivesForMonth(monthAndYear: String): List<Drive> {
         return driveRepository.getDrivesByDate(monthAndYear)
     }
+
+    override fun getAllDrives(): List<Drive> {
+        return driveRepository.getDrivesList()
+    }
 }

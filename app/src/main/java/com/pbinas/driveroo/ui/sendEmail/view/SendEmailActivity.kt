@@ -21,10 +21,11 @@ class SendEmailActivity : BaseActivity(), SendEmailView {
         val view = binding.root
         setContentView(view)
         presenter.onAttach(this)
+        presenter.setViewValues(binding, this)
     }
 
     fun sendData(view: View) {
-        presenter.sendData()
+        presenter.sendData(binding)
     }
 
     override fun getChosenMonths(): List<String> {

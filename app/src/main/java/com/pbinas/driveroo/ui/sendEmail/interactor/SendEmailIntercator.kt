@@ -8,4 +8,5 @@ interface SendEmailIntercator: Interactor {
 
     fun getUser(): User
     fun getDrivesForMonth(monthAndYear: String): List<Drive>
+    fun getAllDrives(): List<Drive>
 }

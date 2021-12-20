@@ -1,7 +1,10 @@
 package com.pbinas.driveroo.util
 
 import android.content.Context
+import android.net.Uri
 import android.os.Environment
+import androidx.core.content.FileProvider
+import com.pbinas.driveroo.BuildConfig
 import com.pbinas.driveroo.data.model.drives.Drive
 import com.pbinas.driveroo.data.model.user.User
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
@@ -35,7 +38,7 @@ class ExcelUtil {
 
                 var date = LocalDate.parse(drives.firstOrNull()?.date, dateFormatter)
                 var dateText = date.format(DateTimeFormatter.ofPattern("yyyy_MM"))
-                var filename = "${user.name}_${user.surname}_$dateText"
+                var filename = "${user.name}_${user.surname}_$dateText.xls"
                 storeExcelInStorage(context, filename, workbook)
 
                 return filename
@@ -113,7 +116,7 @@ class ExcelUtil {
             return isSuccess
         }
 
-        fun readExcelFromStorage(context: Context, fileName: String): HSSFWorkbook? {
+        fun readExcelFromStorage(context: Context, fileName: String): Uri? {
             var file = File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName)
 
             try {
@@ -122,7 +125,7 @@ class ExcelUtil {
                 var workbook = HSSFWorkbook(fileInputStream);
 
                 var sheet = workbook.getSheetAt(0);
-                return workbook
+                return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", file);
                 sheet.topRow
             } catch (e: Exception) {
                 e.printStackTrace()
