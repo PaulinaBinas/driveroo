@@ -7,4 +7,5 @@ import com.pbinas.driveroo.ui.base.interactor.Interactor
 interface MainInteractor: Interactor {
 
     fun saveUser(user: User)
+    fun getUser(): User?
 }

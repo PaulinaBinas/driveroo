@@ -9,4 +9,6 @@ interface MainPresenter<V: MainView, I: MainInteractor>: Presenter<V, I> {
 
     fun registerUser(context: Activity, firstName: String, surname: String)
 
+    fun checkIfAlreadyLoggedIn()
+
 }

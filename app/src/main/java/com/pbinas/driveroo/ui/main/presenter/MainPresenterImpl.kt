@@ -5,6 +5,7 @@ import android.content.Intent
 import com.pbinas.driveroo.data.model.user.User
 import com.pbinas.driveroo.ui.base.presenter.BasePresenter
 import com.pbinas.driveroo.ui.main.interactor.MainInteractor
+import com.pbinas.driveroo.ui.main.view.MainActivity
 import com.pbinas.driveroo.ui.main.view.MainView
 import com.pbinas.driveroo.ui.mainMenu.MainMenuActivity
 import kotlinx.coroutines.GlobalScope
@@ -31,6 +32,19 @@ class MainPresenterImpl<V: MainView, I: MainInteractor> @Inject internal constru
         intent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
         context.startActivity(intent)
         context.finish()
+    }
+
+    override fun checkIfAlreadyLoggedIn() {
+        interactor?.let {
+            var user: User? = null
+            var run = GlobalScope.launch {
+                user = it.getUser()
+            }
+            while (!run.isCompleted) {;}
+            if(user != null) {
+                goToMainMenu(getView() as MainActivity)
+            }
+        }
     }
 
 }

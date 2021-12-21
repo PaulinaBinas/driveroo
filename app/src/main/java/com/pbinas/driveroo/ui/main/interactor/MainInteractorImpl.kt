@@ -10,4 +10,8 @@ class MainInteractorImpl @Inject internal constructor(var userRepository: UserRe
         userRepository.addUser(user)
     }
 
+    override fun getUser(): User? {
+        return userRepository.getUserById(1)
+    }
+
 }

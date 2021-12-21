@@ -19,6 +19,8 @@ class MainActivity : BaseActivity(), MainView {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        presenter.onAttach(this)
+        presenter.checkIfAlreadyLoggedIn()
     }
 
     fun saveNames(view: View) {
