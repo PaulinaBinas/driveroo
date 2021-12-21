@@ -21,15 +21,20 @@ class ChooseTimeActivity : BaseActivity(), ChooseTimeView {
     private var date: String? = null
     private var time: String? = null
     private var country: String? = null
+    private final var timeInPl = " UTC+1 (w Polsce)"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_time)
-        var dateTime = Calendar.getInstance().time
+        var ids = TimeZone.getAvailableIDs()
+        var calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Warsaw"))
+        var dateTime = calendar.time
         var dateText : TextView = findViewById(R.id.dateText)
-        dateText.text = dateTime.toString("dd/MM/yyyy")
+        date = dateTime.toString("dd/MM/yyyy")
+        dateText.text = date
         var timeText : TextView = findViewById(R.id.timeText)
-        timeText.text = dateTime.toString("HH:mm")
+        time = dateTime.toString("HH:mm")
+        timeText.text = time + timeInPl
         type = intent.getStringExtra("type") ?: ""
         id = intent.extras?.getInt("id", -1)
         if(id != null && id!! > -1) {
@@ -60,22 +65,22 @@ class ChooseTimeActivity : BaseActivity(), ChooseTimeView {
 
     override fun setNewTime(hour: Int, minute: Int) {
         var timeText : TextView = findViewById(R.id.timeText)
-        timeText.text = LocalTime.of(hour, minute).format(DateTimeFormatter.ofPattern("HH:mm"))
+        time = LocalTime.of(hour, minute).format(DateTimeFormatter.ofPattern("HH:mm"))
+        timeText.text = LocalTime.of(hour, minute).format(DateTimeFormatter.ofPattern("HH:mm")) + timeInPl
     }
 
     override fun setNewDate(year: Int, month: Int, day: Int) {
         var dateText : TextView = findViewById(R.id.dateText)
+        date = LocalDate.of(year, month, day).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
         dateText.text = LocalDate.of(year, month, day).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
     }
 
     override fun getDate(): String {
-        var dateText : TextView = findViewById(R.id.dateText)
-        return dateText.text.toString()
+        return date ?: ""
     }
 
     override fun getTime(): String {
-        var timeText : TextView = findViewById(R.id.timeText)
-        return timeText.text.toString()
+        return time ?: ""
     }
 
     fun changeTime(view: View) {

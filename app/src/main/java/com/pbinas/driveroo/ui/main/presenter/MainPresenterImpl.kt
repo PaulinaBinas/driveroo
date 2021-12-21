@@ -7,7 +7,7 @@ import com.pbinas.driveroo.ui.base.presenter.BasePresenter
 import com.pbinas.driveroo.ui.main.interactor.MainInteractor
 import com.pbinas.driveroo.ui.main.view.MainActivity
 import com.pbinas.driveroo.ui.main.view.MainView
-import com.pbinas.driveroo.ui.mainMenu.MainMenuActivity
+import com.pbinas.driveroo.ui.mainMenu.view.MainMenuActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject

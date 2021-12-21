@@ -25,7 +25,9 @@
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
-        <activity android:name=".ui.sendEmail.view.SendEmailActivity"></activity>
+        <activity
+            android:name=".ui.sendEmail.view.SendEmailActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.browse.view.BrowseActivity"
             android:screenOrientation="portrait" />
@@ -42,7 +44,7 @@
             android:name=".ui.addNewEntry.view.AddNewEntryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.mainMenu.MainMenuActivity"
+            android:name=".ui.mainMenu.view.MainMenuActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.view.MainActivity"

@@ -92,6 +92,7 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), SendE
             val verticalLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             binding.monthsRecyclerView.layoutManager = verticalLayoutManager
             binding.monthsRecyclerView.setHasFixedSize(false)
+            binding.monthsRecyclerView.isNestedScrollingEnabled = true
         }
     }
 

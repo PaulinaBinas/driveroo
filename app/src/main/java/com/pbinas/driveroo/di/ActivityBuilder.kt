@@ -14,7 +14,8 @@ import com.pbinas.driveroo.ui.details.DetailsModule
 import com.pbinas.driveroo.ui.details.view.DetailsActivity
 import com.pbinas.driveroo.ui.main.MainModule
 import com.pbinas.driveroo.ui.main.view.MainActivity
-import com.pbinas.driveroo.ui.mainMenu.MainMenuActivity
+import com.pbinas.driveroo.ui.mainMenu.MainMenuModule
+import com.pbinas.driveroo.ui.mainMenu.view.MainMenuActivity
 import com.pbinas.driveroo.ui.sendEmail.SendEmailModule
 import com.pbinas.driveroo.ui.sendEmail.view.SendEmailActivity
 import dagger.Module
@@ -41,7 +42,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(DatabaseModule::class), (DriveModule::class), (DetailsModule::class)])
     abstract fun bindDetailsActivity(): DetailsActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [(DatabaseModule::class), (UserModule::class), (MainMenuModule::class)])
     abstract fun bindMainMenuActivity(): MainMenuActivity
 
     @ContributesAndroidInjector(modules = [(SendEmailModule::class), (DatabaseModule::class), (DriveModule::class), (UserModule::class)])
