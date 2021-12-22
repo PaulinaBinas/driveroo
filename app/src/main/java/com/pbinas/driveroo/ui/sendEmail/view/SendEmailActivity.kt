@@ -22,13 +22,24 @@ class SendEmailActivity : BaseActivity(), SendEmailView {
         setContentView(view)
         presenter.onAttach(this)
         presenter.setViewValues(binding, this)
+        stopAnimation()
     }
 
     fun sendData(view: View) {
+        playAnimation()
         presenter.sendData(binding)
+        stopAnimation()
     }
 
     override fun getChosenMonths(): List<String> {
         return this.chosenMonths
+    }
+
+    override fun playAnimation() {
+        //binding.loading.visibility = View.VISIBLE
+    }
+
+    override fun stopAnimation() {
+        //binding.loading.visibility = View.GONE
     }
 }

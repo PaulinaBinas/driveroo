@@ -2,6 +2,7 @@ package com.pbinas.driveroo.ui.browse.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.pbinas.driveroo.databinding.ActivityBrowseBinding
 import com.pbinas.driveroo.ui.base.view.BaseActivity
 import com.pbinas.driveroo.ui.browse.interactor.BrowseInteractor
@@ -20,8 +21,10 @@ class BrowseActivity : BaseActivity(), BrowseView {
         binding = ActivityBrowseBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        playAnimation()
         presenter.onAttach(this)
         presenter.setViewValues(binding, this)
+        stopAnimation()
     }
 
     override fun openDetails(id: Int) {
@@ -30,4 +33,14 @@ class BrowseActivity : BaseActivity(), BrowseView {
         intent.putExtra("edit", true)
         startActivity(intent)
     }
+
+    override fun playAnimation() {
+        //binding.loading.visibility = View.VISIBLE
+    }
+
+    override fun stopAnimation() {
+        //binding.loading.visibility = View.INVISIBLE
+    }
+
+
 }

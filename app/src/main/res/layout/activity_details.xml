@@ -165,7 +165,21 @@
         android:visibility="invisible"
         android:background="@drawable/rounded_button"
         android:text="@string/editEntry"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@id/deleteButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToDeleteConfirmation"
+        android:visibility="invisible"
+        android:background="@drawable/rounded_button_red"
+        android:text="@string/delete_entry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

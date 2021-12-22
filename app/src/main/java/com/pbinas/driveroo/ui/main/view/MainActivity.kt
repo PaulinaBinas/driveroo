@@ -13,14 +13,23 @@ class MainActivity : BaseActivity(), MainView {
     @Inject
     lateinit var presenter: MainPresenter<MainView, MainInteractor>
     private lateinit var binding: ActivityMainBinding
+    private var name: String? = null
+    private var surname: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        name = intent.extras?.getString("name", null)
+        surname = intent.extras?.getString("surname", null)
         presenter.onAttach(this)
-        presenter.checkIfAlreadyLoggedIn()
+        if(name != null && surname != null) {
+            binding.firstNameEditText.setText(name)
+            binding.surnameEditText.setText(surname)
+        } else {
+            presenter.checkIfAlreadyLoggedIn()
+        }
     }
 
     fun saveNames(view: View) {

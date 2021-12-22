@@ -5,4 +5,6 @@ import com.pbinas.driveroo.ui.base.view.BaseView
 interface BrowseView: BaseView {
 
     fun openDetails(id: Int)
+    fun playAnimation()
+    fun stopAnimation()
 }

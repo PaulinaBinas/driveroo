@@ -14,7 +14,7 @@ class DetailsInteractorImpl @Inject internal constructor(var driveRepository: Dr
         return driveRepository.getDriveById(id)
     }
 
-    override fun deleteBrive(id: Int) {
+    override fun deleteDrive(id: Int) {
         driveRepository.deleteDriveById(id)
     }
 }

@@ -9,6 +9,7 @@ import com.pbinas.driveroo.R
 import com.pbinas.driveroo.data.model.drives.Drive
 import com.pbinas.driveroo.ui.addNewEntry.view.AddNewEntryActivity
 import com.pbinas.driveroo.ui.base.view.BaseActivity
+import com.pbinas.driveroo.ui.confirmDeletion.ConfirmDeletionActivity
 import com.pbinas.driveroo.ui.details.interactor.DetailsInteractor
 import com.pbinas.driveroo.ui.details.presenter.DetailsPresenter
 import javax.inject.Inject
@@ -52,9 +53,13 @@ class DetailsActivity : BaseActivity(), DetailsView {
         if (id != null && id!! > -1 && edit) {
             presenter.loadDriveById(id!!)
             showEditButton()
+            showDeleteButton()
         } else {
             showSaveButton()
             setValues()
+        }
+        if (intent.extras?.getString("delete") != null && id != null) {
+            presenter.deleteDrive(id!!, this)
         }
     }
 
@@ -92,6 +97,8 @@ class DetailsActivity : BaseActivity(), DetailsView {
     private fun showSaveButton() {
         var editButton: Button = findViewById(R.id.editButton)
         editButton.visibility = View.INVISIBLE
+        var deleteButton: Button = findViewById(R.id.deleteButton)
+        deleteButton.visibility = View.INVISIBLE
         var saveButton: Button = findViewById(R.id.saveButton)
         saveButton.visibility = View.VISIBLE
     }
@@ -101,5 +108,16 @@ class DetailsActivity : BaseActivity(), DetailsView {
         saveButton.visibility = View.INVISIBLE
         var editButton: Button = findViewById(R.id.editButton)
         editButton.visibility = View.VISIBLE
+    }
+
+    private fun showDeleteButton() {
+        var deleteButton: Button = findViewById(R.id.deleteButton)
+        deleteButton.visibility = View.VISIBLE
+    }
+
+    fun goToDeleteConfirmation(view: View) {
+        var intent = Intent(this, ConfirmDeletionActivity::class.java)
+        intent.putExtra("id", id)
+        startActivity(intent)
     }
 }

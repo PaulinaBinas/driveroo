@@ -12,6 +12,7 @@ import com.pbinas.driveroo.ui.mainMenu.presenter.MainMenuPresenter
 import com.pbinas.driveroo.ui.sendEmail.view.SendEmailActivity
 import javax.inject.Inject
 
+
 class MainMenuActivity : BaseActivity(), MainMenuView {
     @Inject
     lateinit var presenter: MainMenuPresenter<MainMenuView, MainMenuInteractor>
@@ -24,6 +25,9 @@ class MainMenuActivity : BaseActivity(), MainMenuView {
         setContentView(view)
         presenter.onAttach(this)
         presenter.setTitleText()
+        binding.title.setOnClickListener {
+            presenter.changeName(this)
+        }
     }
 
     fun browseEntries(view: View) {
@@ -43,5 +47,6 @@ class MainMenuActivity : BaseActivity(), MainMenuView {
 
     override fun setTitle(firstName: String, surname: String) {
         binding.title.text = "Witaj, $firstName $surname!"
+        binding.title.paint?.isUnderlineText = true
     }
 }

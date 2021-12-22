@@ -9,5 +9,5 @@ interface DetailsInteractor: Interactor {
 
     fun loadDrive(id: Int): Drive?
 
-    fun deleteBrive(id: Int)
+    fun deleteDrive(id: Int)
 }

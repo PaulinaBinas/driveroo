@@ -4,14 +4,14 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.binas.tachograph",
+  "applicationId": "com.pbinas.driveroo",
   "variantName": "processDebugResources",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 10,
-      "versionName": "10.0",
+      "versionCode": 1,
+      "versionName": "1.0",
       "outputFile": "app-debug.apk"
     }
   ]

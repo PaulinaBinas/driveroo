@@ -112,6 +112,7 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), SendE
                 putParcelableArrayListExtra(Intent.EXTRA_STREAM, excelFiles)
                 type = "application/xls"
             }
+            (context as SendEmailView).stopAnimation()
             context.startActivity(Intent.createChooser(shareIntent, null))
         }
     }

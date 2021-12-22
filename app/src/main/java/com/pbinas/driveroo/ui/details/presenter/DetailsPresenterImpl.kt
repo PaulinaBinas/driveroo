@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import com.pbinas.driveroo.data.model.drives.Drive
 import com.pbinas.driveroo.ui.base.presenter.BasePresenter
+import com.pbinas.driveroo.ui.browse.view.BrowseActivity
 import com.pbinas.driveroo.ui.details.interactor.DetailsInteractor
 import com.pbinas.driveroo.ui.details.view.DetailsView
 import com.pbinas.driveroo.ui.mainMenu.view.MainMenuActivity
@@ -53,14 +54,18 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), Detai
         }
     }
 
-    override fun deleteDrive(id: Int) {
+    override fun deleteDrive(id: Int, context: Activity) {
         interactor?.let {
             var run = GlobalScope.launch {
-                it.deleteBrive(id)
+                it.deleteDrive(id)
             }
             while (!run.isCompleted) {
                 ; //wait
             }
+            var intent = Intent(context, BrowseActivity::class.java)
+            intent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            context.startActivity(intent)
+            context.finish()
         }
     }
 }
