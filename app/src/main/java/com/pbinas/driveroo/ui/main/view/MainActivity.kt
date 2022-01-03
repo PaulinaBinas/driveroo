@@ -15,6 +15,7 @@ class MainActivity : BaseActivity(), MainView {
     private lateinit var binding: ActivityMainBinding
     private var name: String? = null
     private var surname: String? = null
+    private var company: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +24,12 @@ class MainActivity : BaseActivity(), MainView {
         setContentView(view)
         name = intent.extras?.getString("name", null)
         surname = intent.extras?.getString("surname", null)
+        company = intent.extras?.getString("company", null)
         presenter.onAttach(this)
-        if(name != null && surname != null) {
+        if(name != null && surname != null && company != null) {
             binding.firstNameEditText.setText(name)
             binding.surnameEditText.setText(surname)
+            binding.companyEditText.setText(company)
         } else {
             presenter.checkIfAlreadyLoggedIn()
         }
@@ -35,9 +38,10 @@ class MainActivity : BaseActivity(), MainView {
     fun saveNames(view: View) {
         var name = binding.firstNameEditText.text.toString()
         var surname = binding.surnameEditText.text.toString()
+        var company = binding.companyEditText.text.toString()
 
-        if(name.isNotBlank() && surname.isNotBlank()) {
-            presenter.registerUser(this, name, surname)
+        if(name.isNotBlank() && surname.isNotBlank() && company.isNotBlank()) {
+            presenter.registerUser(this, name, surname, company)
         }
     }
 }

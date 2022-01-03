@@ -35,7 +35,7 @@
             android:id="@+id/firstNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/firstName" />
@@ -44,9 +44,18 @@
             android:id="@+id/surnameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/surname" />
+
+        <EditText
+            android:id="@+id/companyEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/company_name" />
     </LinearLayout>
 
     <Button

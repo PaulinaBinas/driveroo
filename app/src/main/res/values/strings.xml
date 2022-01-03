@@ -21,4 +21,5 @@
     <string name="delete_entry">Usuń wpis</string>
     <string name="delete">Usuń</string>
     <string name="cancel">Anuluj</string>
+    <string name="company_name">Nazwa firmy</string>
 </resources>

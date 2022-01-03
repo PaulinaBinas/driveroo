@@ -30,6 +30,7 @@ constructor(interactor: I): BasePresenter<V, I>(interactor = interactor), MainMe
         if (user != null) {
             intent.putExtra("name", user!!.name)
             intent.putExtra("surname", user!!.surname)
+            intent.putExtra("company", user!!.company)
         }
         context.startActivity(intent)
     }

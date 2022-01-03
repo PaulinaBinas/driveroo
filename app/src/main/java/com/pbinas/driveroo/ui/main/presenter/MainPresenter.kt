@@ -7,7 +7,7 @@ import com.pbinas.driveroo.ui.main.view.MainView
 
 interface MainPresenter<V: MainView, I: MainInteractor>: Presenter<V, I> {
 
-    fun registerUser(context: Activity, firstName: String, surname: String)
+    fun registerUser(context: Activity, firstName: String, surname: String, company: String)
 
     fun checkIfAlreadyLoggedIn()
 

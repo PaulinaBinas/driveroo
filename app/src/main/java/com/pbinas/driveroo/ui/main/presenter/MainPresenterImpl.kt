@@ -15,8 +15,8 @@ import javax.inject.Inject
 class MainPresenterImpl<V: MainView, I: MainInteractor> @Inject internal constructor(interactor: I): BasePresenter<V, I>(interactor = interactor),
     MainPresenter<V, I> {
 
-    override fun registerUser(context: Activity, firstName: String, surname: String) {
-        var newUser = User(firstName, surname)
+    override fun registerUser(context: Activity, firstName: String, surname: String, company: String) {
+        var newUser = User(firstName, surname, company)
 
         interactor?.let {
             GlobalScope.launch {

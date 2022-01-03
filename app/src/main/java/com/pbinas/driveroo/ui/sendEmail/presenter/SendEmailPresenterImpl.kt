@@ -107,8 +107,8 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), SendE
             }
             val shareIntent = Intent().apply {
                 action = Intent.ACTION_SEND_MULTIPLE
-                putExtra(Intent.EXTRA_EMAIL, arrayOf("test@gmail.com"))
-                putExtra(Intent.EXTRA_SUBJECT, "Pliki z danymi od ${user.name} ${user.surname}");
+                putExtra(Intent.EXTRA_EMAIL, arrayOf("czastacho@gmail.com"))
+                putExtra(Intent.EXTRA_SUBJECT, "Pliki z danymi od ${user.name} ${user.surname} z firmy ${user.company}");
                 putParcelableArrayListExtra(Intent.EXTRA_STREAM, excelFiles)
                 type = "application/xls"
             }
