@@ -6,10 +6,10 @@ import android.view.View
 import com.pbinas.driveroo.databinding.ActivityChooseCountryBinding
 import com.pbinas.driveroo.ui.base.view.BaseActivity
 import com.pbinas.driveroo.ui.chooseCountry.ChooseCountryAdapter
-import com.pbinas.driveroo.util.CountryUtil
 import com.pbinas.driveroo.ui.chooseCountry.interactor.ChooseCountryInteractor
 import com.pbinas.driveroo.ui.chooseCountry.presenter.ChooseCountryPresenter
-import com.pbinas.driveroo.ui.details.view.DetailsActivity
+import com.pbinas.driveroo.ui.chooseDelegationType.view.ChooseDelegationTypeActivity
+import com.pbinas.driveroo.util.CountryUtil
 import javax.inject.Inject
 
 class ChooseCountryActivity : BaseActivity(), ChooseCountryView {
@@ -44,7 +44,7 @@ class ChooseCountryActivity : BaseActivity(), ChooseCountryView {
     }
 
     fun goFurther(view: View) {
-        var intent = Intent(this, DetailsActivity::class.java)
+        var intent = Intent(this, ChooseDelegationTypeActivity::class.java)
         if(id != null && id!! > -1) {
             intent.putExtra("id", id)
         }

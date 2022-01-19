@@ -22,4 +22,8 @@
     <string name="delete">Usuń</string>
     <string name="cancel">Anuluj</string>
     <string name="company_name">Nazwa firmy</string>
+    <string name="bilateral">Bilateralny</string>
+    <string name="cross_trade">Cross-trade</string>
+    <string name="transit">Tranzyt</string>
+    <string name="cabotage">Kabotaż</string>
 </resources>

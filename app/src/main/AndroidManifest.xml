@@ -22,7 +22,8 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.confirmDeletion.ConfirmDeletionActivity"></activity>
+        <activity android:name=".ui.chooseDelegationType.view.ChooseDelegationTypeActivity"></activity>
+        <activity android:name=".ui.confirmDeletion.ConfirmDeletionActivity" />
 
         <uses-library
             android:name="org.apache.http.legacy"

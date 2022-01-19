@@ -9,6 +9,8 @@ import com.pbinas.driveroo.ui.browse.BrowseModule
 import com.pbinas.driveroo.ui.browse.view.BrowseActivity
 import com.pbinas.driveroo.ui.chooseCountry.ChooseCountryModule
 import com.pbinas.driveroo.ui.chooseCountry.view.ChooseCountryActivity
+import com.pbinas.driveroo.ui.chooseDelegationType.ChooseDelegationTypeModule
+import com.pbinas.driveroo.ui.chooseDelegationType.view.ChooseDelegationTypeActivity
 import com.pbinas.driveroo.ui.chooseTime.ChooseTimeActivity
 import com.pbinas.driveroo.ui.details.DetailsModule
 import com.pbinas.driveroo.ui.details.view.DetailsActivity
@@ -47,4 +49,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(SendEmailModule::class), (DatabaseModule::class), (DriveModule::class), (UserModule::class)])
     abstract fun bindSendEmailActivity(): SendEmailActivity
+
+    @ContributesAndroidInjector(modules = [(ChooseDelegationTypeModule::class)])
+    abstract fun bindChooseDelegationTypeActivity(): ChooseDelegationTypeActivity
 }

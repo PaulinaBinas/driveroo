@@ -64,7 +64,7 @@ class DetailsActivity : BaseActivity(), DetailsView {
     }
 
     fun saveEntry(view: View) {
-        var drive = Drive(type, time, date, country)
+        var drive = Drive(type, time, date, country, null)
         if (id != null && id!! > -1 && !edit) {
             drive.id = id
             this.presenter
