@@ -28,6 +28,7 @@ class ExcelUtil {
         private var rideType = "Typ przejazdu"
         private var delegationType = "Rodzaj"
         private var dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        private var id = "ID"
 
         fun createNewFile(context: Context, drives: List<Drive>, user: User): String? {
             if(drives.isNotEmpty()) {
@@ -58,40 +59,48 @@ class ExcelUtil {
             row = sheet.createRow(2)
 
             cell = row.createCell(0)
-            cell.setCellValue(country)
+            cell.setCellValue(id)
 
             cell = row.createCell(1)
-            cell.setCellValue(date)
+            cell.setCellValue(country)
 
             cell = row.createCell(2)
-            cell.setCellValue(time)
+            cell.setCellValue(date)
 
             cell = row.createCell(3)
-            cell.setCellValue(rideType)
+            cell.setCellValue(time)
 
             cell = row.createCell(4)
+            cell.setCellValue(rideType)
+
+            cell = row.createCell(5)
             cell.setCellValue(delegationType)
         }
 
         private fun createContent(sheet: Sheet, drives: List<Drive>) {
             var currentRowNo = 3
+            var idOfRow = 1
             for(drive in drives) {
                 var row = sheet.createRow(currentRowNo)
                 var cell = row.createCell(0)
-                cell.setCellValue(drive.country)
+                cell.setCellValue("$idOfRow")
 
                 cell = row.createCell(1)
-                cell.setCellValue(drive.date)
+                cell.setCellValue(drive.country)
 
                 cell = row.createCell(2)
-                cell.setCellValue(drive.time)
+                cell.setCellValue(drive.date)
 
                 cell = row.createCell(3)
-                cell.setCellValue(getRideTypeText(drive.type))
+                cell.setCellValue(drive.time)
 
                 cell = row.createCell(4)
+                cell.setCellValue(getRideTypeText(drive.type))
+
+                cell = row.createCell(5)
                 cell.setCellValue(getDelegationTypeText(drive.delegationType ?: "brak"))
                 currentRowNo++
+                idOfRow++
             }
         }
 
