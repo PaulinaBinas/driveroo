@@ -24,11 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif-medium"
         android:text="Wybierz typ przejazdu (opcjonalnie)"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -54,24 +55,28 @@
                 android:id="@+id/bilateral"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/bilateral" />
 
             <RadioButton
                 android:id="@+id/cross_trade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/cross_trade" />
 
             <RadioButton
                 android:id="@+id/transit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/transit" />
 
             <RadioButton
                 android:id="@+id/cabotage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/cabotage" />
         </RadioGroup>
     </LinearLayout>

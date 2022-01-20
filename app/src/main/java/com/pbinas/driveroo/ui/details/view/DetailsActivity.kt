@@ -37,6 +37,11 @@ class DetailsActivity : BaseActivity(), DetailsView {
         this.country = country
     }
 
+    private var chosenType: String? = null
+    override fun setChosenType(type: String?) {
+        this.chosenType = type
+    }
+
     var id: Int? = null
     private var edit = false
 
@@ -46,6 +51,7 @@ class DetailsActivity : BaseActivity(), DetailsView {
         date = intent.extras?.getString("date") ?: ""
         time = intent.extras?.getString("time") ?: ""
         country = intent.extras?.getString("country") ?: ""
+        chosenType = intent.extras?.getString("chosenType", null)
         id = intent.extras?.getInt("id", -1)
         edit = intent.extras?.getBoolean("edit", false) ?: false
         setContentView(R.layout.activity_details)
@@ -64,7 +70,7 @@ class DetailsActivity : BaseActivity(), DetailsView {
     }
 
     fun saveEntry(view: View) {
-        var drive = Drive(type, time, date, country, null)
+        var drive = Drive(type, time, date, country, chosenType)
         if (id != null && id!! > -1 && !edit) {
             drive.id = id
             this.presenter
@@ -87,11 +93,13 @@ class DetailsActivity : BaseActivity(), DetailsView {
         var dateText : TextView = findViewById(R.id.dateText)
         var timeText : TextView = findViewById(R.id.timeText)
         var countryText : TextView = findViewById(R.id.countryText)
+        var delegationTypeText : TextView = findViewById(R.id.delegationTypeText)
 
         typeText.text = presenter.getTypeText(type)
         dateText.text = date
         timeText.text = time
         countryText.text = country
+        delegationTypeText.text = chosenType ?: "-"
     }
 
     private fun showSaveButton() {

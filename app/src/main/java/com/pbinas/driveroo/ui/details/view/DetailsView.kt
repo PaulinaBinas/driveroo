@@ -8,5 +8,6 @@ interface DetailsView: BaseView {
     fun setDate(date: String)
     fun setTime(time: String)
     fun setCountry(country: String)
+    fun setChosenType(type: String?)
     fun setValues()
 }

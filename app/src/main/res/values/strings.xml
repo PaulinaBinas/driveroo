@@ -26,4 +26,5 @@
     <string name="cross_trade">Cross-trade</string>
     <string name="transit">Tranzyt</string>
     <string name="cabotage">Kabotaż</string>
+    <string name="type">Typ:</string>
 </resources>

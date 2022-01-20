@@ -26,6 +26,7 @@ class ExcelUtil {
         private var date = "Data"
         private var time = "Godzina"
         private var rideType = "Typ przejazdu"
+        private var delegationType = "Rodzaj"
         private var dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
         fun createNewFile(context: Context, drives: List<Drive>, user: User): String? {
@@ -67,6 +68,9 @@ class ExcelUtil {
 
             cell = row.createCell(3)
             cell.setCellValue(rideType)
+
+            cell = row.createCell(4)
+            cell.setCellValue(delegationType)
         }
 
         private fun createContent(sheet: Sheet, drives: List<Drive>) {
@@ -84,6 +88,9 @@ class ExcelUtil {
 
                 cell = row.createCell(3)
                 cell.setCellValue(getRideTypeText(drive.type))
+
+                cell = row.createCell(4)
+                cell.setCellValue(getDelegationTypeText(drive.delegationType ?: "brak"))
                 currentRowNo++
             }
         }
@@ -96,6 +103,15 @@ class ExcelUtil {
             }
         }
 
+        private fun getDelegationTypeText(type: String): String {
+            return when(type) {
+                "Tranzyt" -> "T"
+                "Bilateralny" -> "B"
+                "Kabotaż" -> "K"
+                "Cross-trade" -> "C"
+                else -> "-"
+            }
+        }
         private fun storeExcelInStorage(context: Context, fileName: String, workbook: HSSFWorkbook): Boolean {
             var isSuccess: Boolean
             val file = File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName)

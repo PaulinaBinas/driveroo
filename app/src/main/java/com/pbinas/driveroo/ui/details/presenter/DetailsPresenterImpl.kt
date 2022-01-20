@@ -41,6 +41,7 @@ constructor(interactor: I): BasePresenter<V, I> (interactor = interactor), Detai
                 view.setTime(drive!!.time)
                 view.setDate(drive!!.date)
                 view.setCountry(drive!!.country)
+                view.setChosenType(drive!!.delegationType)
                 view.setValues()
             }
         }
